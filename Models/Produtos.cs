@@ -15,8 +15,15 @@ namespace API_Pneus.Models
         public string Img { get; set; }
         public int carrinhoId { get; set; }
         public Carrinho carrinho { get; set; }
+<<<<<<< HEAD
+        
+=======
         //teste
         //opa
+<<<<<<< Updated upstream
+=======
+>>>>>>> b9251a7351d330710aabd39b79f5e54e950346aa
+>>>>>>> Stashed changes
 
     }
 }
