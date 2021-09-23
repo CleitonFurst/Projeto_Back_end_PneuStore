@@ -16,6 +16,7 @@ namespace API_Pneus.Models
         public int carrinhoId { get; set; }
         public Carrinho carrinho { get; set; }
         //teste
+        //opa
 
     }
 }
