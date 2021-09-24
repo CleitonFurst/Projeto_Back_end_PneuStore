@@ -12,7 +12,7 @@ namespace API_Pneus.Models
         public string  Descricao { get; set; }
         public double Preco { get; set; }       
         public string Marca { get; set; }
-        public string? Img { get; set; }
+        public string Img { get; set; }
         
     }
 }
