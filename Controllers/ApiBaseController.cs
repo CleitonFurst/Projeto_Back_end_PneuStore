@@ -1,7 +1,8 @@
-﻿using BlueFashionRetailer.API;
+﻿
+using API_Pneus.API;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BlueFashionRetailer.Controllers
+namespace API_Pneus.Controllers
 {
     public abstract class ApiBaseController : ControllerBase
     {

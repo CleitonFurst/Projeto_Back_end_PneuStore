@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace API_Pneus.Services
 {
-    interface IProdutosService
+    public interface IProdutosService
     {
+        List<Produtos> All();
         Produtos Get(int? id);
     }
 }
