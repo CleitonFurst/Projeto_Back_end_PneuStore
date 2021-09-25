@@ -1,4 +1,5 @@
 using API_Pneus.Data;
+using API_Pneus.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +39,9 @@ namespace API_Pneus
             services.AddDbContext<Context>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("Api_Pneus"))
           );
+
+            services.AddTransient<IProdutosService, ProdutosService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
