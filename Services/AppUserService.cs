@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace API_Pneus.Services
 {
-    public class AppUserServices : IAppUserServices
+    public class AppUserService : IAppUserService
     {
         Context _context;
-        public AppUserServices(Context context)
+        public AppUserService(Context context)
         {
             this._context = context;
         }

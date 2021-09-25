@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace API_Pneus.Services
 {
-    public interface IAppUserServices
+    public interface IAppUserService
     {
         bool create(Produtos produto);
         bool delete(int? id);
