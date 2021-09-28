@@ -37,6 +37,11 @@ namespace API_Pneus.Controllers
 
 
         //[AuthorizeRoles(RoleType.Admin)]
+        /// <summary>
+        
+        /// </summary>
+        /// <param name="prod"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Create([FromBody] Produtos prod) =>
             _service.Create(prod, User.Identity.Name) ?
