@@ -160,15 +160,14 @@ namespace API_Pneus.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quant = table.Column<int>(type: "int", nullable: false),
-                    appuserId = table.Column<int>(type: "int", nullable: true),
-                    appuserId1 = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    appuserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Carrinho", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Carrinho_AspNetUsers_appuserId1",
-                        column: x => x.appuserId1,
+                        name: "FK_Carrinho_AspNetUsers_appuserId",
+                        column: x => x.appuserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -245,9 +244,9 @@ namespace API_Pneus.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carrinho_appuserId1",
+                name: "IX_Carrinho_appuserId",
                 table: "Carrinho",
-                column: "appuserId1");
+                column: "appuserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produtos_AppUserId",

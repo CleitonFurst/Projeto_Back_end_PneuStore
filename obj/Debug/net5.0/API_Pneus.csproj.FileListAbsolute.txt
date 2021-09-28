@@ -78,3 +78,5 @@ C:\Users\furst\Documents\GitHub\Projeto_Back_end_PneuStore\obj\Debug\net5.0\API_
 C:\Users\furst\Documents\GitHub\Projeto_Back_end_PneuStore\obj\Debug\net5.0\ref\API_Pneus.dll
 C:\Users\furst\Documents\GitHub\Projeto_Back_end_PneuStore\obj\Debug\net5.0\API_Pneus.pdb
 C:\Users\furst\Documents\GitHub\Projeto_Back_end_PneuStore\obj\Debug\net5.0\API_Pneus.genruntimeconfig.cache
+C:\Users\furst\Documents\GitHub\Projeto_Back_end_PneuStore\bin\Debug\net5.0\Castle.Core.dll
+C:\Users\furst\Documents\GitHub\Projeto_Back_end_PneuStore\bin\Debug\net5.0\FakeItEasy.dll

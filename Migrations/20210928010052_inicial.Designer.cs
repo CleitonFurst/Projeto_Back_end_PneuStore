@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Pneus.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210924001130_inicial")]
+    [Migration("20210928010052_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,15 +31,12 @@ namespace API_Pneus.Migrations
                     b.Property<int>("Quant")
                         .HasColumnType("int");
 
-                    b.Property<int?>("appuserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("appuserId1")
+                    b.Property<string>("appuserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("appuserId1");
+                    b.HasIndex("appuserId");
 
                     b.ToTable("Carrinho");
                 });
@@ -294,7 +291,7 @@ namespace API_Pneus.Migrations
                 {
                     b.HasOne("API_Pneus.Models.AppUser", "appuser")
                         .WithMany()
-                        .HasForeignKey("appuserId1");
+                        .HasForeignKey("appuserId");
 
                     b.Navigation("appuser");
                 });
