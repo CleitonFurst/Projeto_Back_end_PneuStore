@@ -1,13 +1,17 @@
 ﻿using API_Pneus.Models;
 using API_Pneus.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace API_Pneus.Controllers
 {
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
     [ApiController]
     [Route("[controller]")]
     public class CarrinhoController : ApiBaseController
@@ -19,6 +23,8 @@ namespace API_Pneus.Controllers
             _service = service;
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet]
         public IActionResult Index() =>
             ApiOk(_service.All());

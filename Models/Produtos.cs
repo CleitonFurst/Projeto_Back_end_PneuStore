@@ -13,6 +13,8 @@ namespace API_Pneus.Models
         public double Preco { get; set; }       
         public string Marca { get; set; }
         public string Img { get; set; }
+
+        List<Carrinho> carrinhos { get; set; }
         
     }
 }
