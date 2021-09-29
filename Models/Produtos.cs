@@ -14,7 +14,7 @@ namespace API_Pneus.Models
         public string Marca { get; set; }
         public string Img { get; set; }
 
-        List<Carrinho> carrinhos { get; set; }
+       
         
     }
 }

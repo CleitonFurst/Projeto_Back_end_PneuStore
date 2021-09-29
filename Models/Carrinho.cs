@@ -12,7 +12,7 @@ namespace API_Pneus.Models
         public AppUser appuser { get; set; }
         public List<Produtos> Produtos { get; set; }
 
-        public int? produtosId { get; set; }
+        //public int? produtosId { get; set; }
 
         public Produtos produtos { get; set; }
 

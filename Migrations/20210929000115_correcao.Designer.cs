@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Pneus.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210928010052_inicial")]
-    partial class inicial
+    [Migration("20210929000115_correcao")]
+    partial class correcao
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,12 +31,12 @@ namespace API_Pneus.Migrations
                     b.Property<int>("Quant")
                         .HasColumnType("int");
 
-                    b.Property<string>("appuserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("produtosId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("appuserId");
+                    b.HasIndex("produtosId");
 
                     b.ToTable("Carrinho");
                 });
@@ -47,9 +47,6 @@ namespace API_Pneus.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("CarrinhoId")
                         .HasColumnType("int");
@@ -70,8 +67,6 @@ namespace API_Pneus.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("CarrinhoId");
 
@@ -227,10 +222,12 @@ namespace API_Pneus.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -267,10 +264,12 @@ namespace API_Pneus.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -284,24 +283,27 @@ namespace API_Pneus.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<int?>("carrinhoId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("carrinhoId")
+                        .IsUnique()
+                        .HasFilter("[carrinhoId] IS NOT NULL");
+
                     b.HasDiscriminator().HasValue("AppUser");
                 });
 
             modelBuilder.Entity("API_Pneus.Models.Carrinho", b =>
                 {
-                    b.HasOne("API_Pneus.Models.AppUser", "appuser")
+                    b.HasOne("API_Pneus.Models.Produtos", "produtos")
                         .WithMany()
-                        .HasForeignKey("appuserId");
+                        .HasForeignKey("produtosId");
 
-                    b.Navigation("appuser");
+                    b.Navigation("produtos");
                 });
 
             modelBuilder.Entity("API_Pneus.Models.Produtos", b =>
                 {
-                    b.HasOne("API_Pneus.Models.AppUser", null)
-                        .WithMany("Produtos")
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("API_Pneus.Models.Carrinho", null)
                         .WithMany("Produtos")
                         .HasForeignKey("CarrinhoId");
@@ -358,13 +360,19 @@ namespace API_Pneus.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("API_Pneus.Models.Carrinho", b =>
-                {
-                    b.Navigation("Produtos");
-                });
-
             modelBuilder.Entity("API_Pneus.Models.AppUser", b =>
                 {
+                    b.HasOne("API_Pneus.Models.Carrinho", "carrinho")
+                        .WithOne("appuser")
+                        .HasForeignKey("API_Pneus.Models.AppUser", "carrinhoId");
+
+                    b.Navigation("carrinho");
+                });
+
+            modelBuilder.Entity("API_Pneus.Models.Carrinho", b =>
+                {
+                    b.Navigation("appuser");
+
                     b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618

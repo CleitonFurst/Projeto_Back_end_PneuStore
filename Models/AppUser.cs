@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace API_Pneus.Models
 {
     public class AppUser : IdentityUser    {
-       
-        public List<Produtos> Produtos  { get; set; }
+
+        public int? carrinhoId { get; set; }
+        public Carrinho carrinho { get; set; }
     }
 }
