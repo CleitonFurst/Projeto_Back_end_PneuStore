@@ -2,7 +2,7 @@
 
 namespace API_Pneus.Migrations
 {
-    public partial class teste : Migration
+    public partial class correcao : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

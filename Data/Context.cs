@@ -16,6 +16,11 @@ namespace API_Pneus.Data
         public DbSet<AppUser> User { get; set; }
         public DbSet<Produtos> Produtos { get; set; }
         public DbSet<Carrinho> Carrinho { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
+        }
 
 
     }
