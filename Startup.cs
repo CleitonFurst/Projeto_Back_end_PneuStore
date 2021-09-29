@@ -41,8 +41,9 @@ namespace API_Pneus
               options.UseSqlServer(Configuration.GetConnectionString("Api_Pneus"))
           );
 
-            services.AddTransient<IProdutosService, ProdutosService>();
-            services.AddTransient<ICarrinhoService, CarrinhoService>();
+            services.AddTransient<IProdutoService, ProdutoService>();
+            services.AddTransient<IVendaService, VendaService>();
+            services.AddTransient<IClienteService, ClienteService>();
 
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<Context>();
         }

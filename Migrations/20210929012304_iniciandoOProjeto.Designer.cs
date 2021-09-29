@@ -10,8 +10,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Pneus.Migrations
 {
     [DbContext(typeof(Context))]
+<<<<<<< Updated upstream:Migrations/20210929012304_iniciandoOProjeto.Designer.cs
     [Migration("20210929012304_iniciandoOProjeto")]
     partial class iniciandoOProjeto
+=======
+    [Migration("20210929000115_correcao")]
+    partial class correcao
+>>>>>>> Stashed changes:Migrations/20210929000115_correcao.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -12,10 +12,10 @@ namespace API_Pneus.Controllers
     [Route("[controller]")]
     public class ProdutosController : ApiBaseController
     {
-        IProdutosService _service;
+        IProdutoService _service;
 
 
-        public ProdutosController(IProdutosService service)
+        public ProdutosController(IProdutoService service)
         {
             _service = service;
         }
@@ -30,7 +30,7 @@ namespace API_Pneus.Controllers
         [HttpGet]
         public IActionResult Index(int? id)
         {
-            Produtos exists = _service.Get(id);
+            Produto exists = _service.Get(id);
             return exists == null ?
                 ApiNotFound("Não foi encontrado o produto solicitado.") :
                 ApiOk(exists);
